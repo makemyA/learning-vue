@@ -1,0 +1,57 @@
+<template>
+  <div>
+    <ul v-for= 'car in cars' :key="car.id">
+      <li>{{car.name}}</li>
+      <li>{{car.model}}</li>
+      <li>{{car.year}}</li>
+    </ul>
+    <button @click= 'addCar'>Add Car</button>
+    <p>Nombre de voitures: {{counter}}</p>
+  </div>
+</template>
+
+<script>
+import Vue from 'vue'
+import VueResource from 'vue-resource'
+Vue.use(VueResource)
+
+export default {
+  name: 'Cars',
+  data () {
+    return {
+      cars: [],
+    }
+  },
+  http: {
+    root: 'http://localhost:3000'
+  },
+  props: ['name', 'model', 'year'],
+  methods: {
+    addCar () {
+      this.cars.push({
+        name: 'Porsche',
+        model: 'Cayenne',
+        year: '2016'
+      })
+    },
+  },
+  computed: {
+    counter () {
+      return this.cars.length
+    }
+  },
+  mounted () {
+    this.$resource('cars')
+      .get()
+      .then(
+        response => {
+          this.cars = response.data
+        },
+        response => {
+          console.log('erreur', response)
+        }
+      )
+  }
+}
+</script>
+

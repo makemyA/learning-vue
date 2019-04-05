@@ -1,0 +1,40 @@
+{
+    "cars": [
+        {
+            "id": 1,
+            "name": "Ford",
+            "model": "Fiesta",
+            "year": "2008"
+        },
+        {
+            "id": 2,
+            "name": "Ferrari",
+            "model": "Testarosa",
+            "year": "1996"
+        },
+        {
+            "id": 3,
+            "name": "citroen",
+            "model": "Saxo",
+            "year": "2006"
+        }
+
+    ],
+    "details": [
+        {
+            "id": 1,
+            "immatriculation": "JUJ441",
+            "km": "125000"
+        },
+        {
+            "id": 2,
+            "immatriculation": "CIA371",
+            "km": "105000"
+        },
+        {
+            "id": 3,
+            "immatriculation": "BCDE45",
+            "km": "78000"
+        }
+    ]
+}
